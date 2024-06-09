@@ -3,35 +3,6 @@ FROM jupyterhub/jupyterhub:5
 
 RUN echo "From Custum Dockerfile"
 
-RUN apk add --no-cache git python3 python3-dev py3-pip py3-setuptools build-base libpq-dev
-
-# build wheels in a build stage
-ARG VIRTUAL_ENV=/opt/venv
-ENV PATH=${VIRTUAL_ENV}/bin:${PATH}
-
-RUN python3 -m venv ${VIRTUAL_ENV}
-
-ADD . /tmp/src
-RUN cd /tmp/src && git clean -xfd && git status
-RUN mkdir /tmp/wheelhouse \
- && cd /tmp/wheelhouse \
- && pip install wheel \
- && pip wheel --no-cache-dir /tmp/src \
- && ls -l /tmp/wheelhouse
-
-FROM alpine:${ALPINE_VERSION}
-
-# install python, git, bash, mercurial
-RUN apk add --no-cache git git-lfs python3 py3-pip py3-setuptools bash docker mercurial
-
-ARG VIRTUAL_ENV=/opt/venv
-ENV PATH=${VIRTUAL_ENV}/bin:${PATH}
-
-RUN python3 -m venv ${VIRTUAL_ENV}
-
-# install hg-evolve (Mercurial extensions)
-RUN pip install hg-evolve --no-cache-dir
-
 # install repo2docker
 COPY --from=0 /tmp/wheelhouse /tmp/wheelhouse
 RUN pip install --no-cache-dir --ignore-installed --no-deps /tmp/wheelhouse/*.whl \

@@ -4,12 +4,7 @@ FROM alpine:${ALPINE_VERSION}
 
 RUN echo "From Custum Dockerfile"
 
-RUN apk update -y && \
-  apt-get install --no-install-recommends -y -q \
-  git libpq-dev python-dev build-essential libsnappy-dev && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN apk add --no-cache git python3 python3-dev py3-pip py3-setuptools build-base
+RUN apk add --no-cache git python3 python3-dev py3-pip py3-setuptools build-base libpq-dev python-dev build-essential libsnappy-dev
 
 # build wheels in a build stage
 ARG VIRTUAL_ENV=/opt/venv

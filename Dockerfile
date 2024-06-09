@@ -3,7 +3,7 @@ FROM jupyterhub/jupyterhub:5
 
 RUN echo "From Custum Dockerfile"
 
-RUN apt-get git
+RUN apt-get install git
 
 # add git-credential helper
 COPY ./docker/git-credential-env /usr/local/bin/git-credential-env

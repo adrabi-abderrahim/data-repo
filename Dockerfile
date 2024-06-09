@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.3
-FROM jupyterhub:c5eebb8bdfde
+FROM jupyterhub/jupyterhub:5
 
 RUN echo "From Custum Dockerfile"
 

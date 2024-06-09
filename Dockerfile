@@ -4,7 +4,7 @@ FROM alpine:${ALPINE_VERSION}
 
 RUN echo "From Custum Dockerfile"
 
-RUN apt-get update -y && \
+RUN apk update -y && \
   apt-get install --no-install-recommends -y -q \
   git libpq-dev python-dev build-essential libsnappy-dev && \
   apt-get clean && \

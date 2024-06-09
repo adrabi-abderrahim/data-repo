@@ -50,10 +50,6 @@ setup(
     version=versioneer.get_version(),
     install_requires=[
         "ipywidgets",
-        "jupyter-offlinenotebook",
-        "jupyter-resource-usage",
-        "jupyter_server",
-        "jupyterhub-singleuser",
         "jupyterlab",
         "notebook",
         "pandas",

@@ -2,7 +2,7 @@
 ARG ALPINE_VERSION=3.19
 FROM alpine:${ALPINE_VERSION}
 
-RUN apk add --no-cache git python3 python3-dev py3-pip py3-setuptools build-base
+RUN apk add --no-cache git python3 python3-dev py3-pip py3-setuptools build-base linux-headers
 
 # build wheels in a build stage
 ARG VIRTUAL_ENV=/opt/venv

@@ -51,7 +51,7 @@ setup(
     install_requires=[
         "ipywidgets",
         "jupyter-offlinenotebook",
-        "jupyter-resource-usage=",
+        "jupyter-resource-usage",
         "jupyter_server",
         "jupyterhub-singleuser",
         "jupyterlab",

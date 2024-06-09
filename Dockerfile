@@ -1,6 +1,5 @@
 # syntax = docker/dockerfile:1.3
-ARG ALPINE_VERSION=3.19
-FROM alpine:${ALPINE_VERSION}
+FROM jupyterhub/jupyterhub:c5eebb8bdfde
 
 RUN echo "From Custum Dockerfile"
 
